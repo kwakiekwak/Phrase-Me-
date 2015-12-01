@@ -4,21 +4,45 @@ body {
   text-align: center;
 }
 
+.container {
+  display: flex;
+}
+
+.test {
+  border: 5px solid red;
+}
+
 #playerOne {
-  float: left;
+  /*float: left;*/
   border: 1px solid black;
   height: 100px;
 }
 
+#spin {
+  width: 80%;
+}
+
 #playerTwo {
-  float: right;
+ /* float: right;*/
   border: 1px solid black;
   height: 100px;
+}
+
+.container1 {
 }
 
 #phrase {
   border: 1px solid black;
   height: 500px;
+  display: flex;
+
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  margin-top: 120px;
 }
 
 footer {
@@ -26,6 +50,8 @@ footer {
   border: 1px solid black;
   margin-top:5px;
 }
+
+
 
 td {
   width: 50px;

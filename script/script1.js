@@ -39,52 +39,45 @@ function nextPlayer() {
 function generateTable() {
 
   //reference for body
-  var body = document.getElementsByTagName('body')[0];
+  var main = document.getElementById('phrase');
   //creating table and tbody elements
   var tble = document.createElement("table");
   var tblebody = document.createElement("tbody");
+  // sets border attributes
+  tble.setAttribute('border', '1');
+
+  var i;
+  var j;
 
   //creating cells
-  for (var i=0; i<4; i++) {
+  for (i=0; i<4; i++) {
     //creates table row
     var row = document.createElement('tr');
-    if (i===0 || i===3) {
-      //if it is the first or last row
-      for (var j=0; j<14; j++) {
-        if (i!=0||i!=13) {
-          var cell = document.createElement('td');
-        } else {
-
-        }
-
-       /* var cellText = document.createTextNode("cell in row "+i+", column "+j);
-*/
-
-       /* cell.appendChild(cellText);*/
-
-        // add the cell to the end of the row
-        row.appendChild(cell);
+    for (j=0; j<14; j++) {
+      var cell = document.createElement('td');
+      row.appendChild(cell);
+    setTableBorder(i, j);
       }
-    } else {
-      for (var j=0; j<14; j++) {
-        var cell = document.createElement('td');
-
-        // add the row to the end of the table body
-        row.appendChild(cell);
-      }
+    tblebody.appendChild(row);
     }
-  tblebody.appendChild(row);
-  }
+
   // add the tblebody to the table
   tble.appendChild(tblebody);
   // append the table to the body
-  body.appendChild(tble);
-  // sets border attributes
-  /*tble.setAttribute('border', '1');*/
-  setTableBorder();
+  main.appendChild(tble);
 }
+
+
+function setTableBorder (row, column) {
+  if (row===0&&column===13) {
+    $('td').addClass('test');
+  }
+
+}
+
+
 //tried to make a function that only set borders for certain criteria
-function setTableBorder () {
+/*function setTableBorder () {
   for(var i=0; i<4; i++) {
     if (i==0 || i==3) {
       for (var j=0; j<14; j++) {
@@ -98,6 +91,8 @@ function setTableBorder () {
       document.getElementsByTagName('td').setAttribute('border', 'none');
     }
   }
-}
+}*/
+
+
 
 generateTable();

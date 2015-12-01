@@ -3,3 +3,131 @@ body {
   padding: 0px;
   text-align: center;
 }
+
+/*h1 {
+  font-size: 100px;
+
+}*/
+
+h3 {
+   font-size: 20px;
+   margin-top: 65px;
+   -webkit-animation-name: example; /* Chrome, Safari, Opera */
+   -webkit-animation-duration: 4s;
+    animation-name: example;
+    animation-duration: 4s;
+}
+@-webkit-keyframes example {
+    from {color: red;}
+    to {color: orange;}
+}
+
+img {
+  width: 150px;
+  height: 180px;
+}
+
+.content {
+  width: auto;
+  font-size:36px;
+  line-height:40px;
+  font-family:'Muli';
+  color: cornflowerblue;
+  height:200px;
+  /*position:absolute;*/
+  /*top:50%;
+  left:50%;*/
+  margin-top:75px;
+  margin-right: 145px;
+
+ /* margin-left:-118px;*/
+
+  &:before {
+    content:'[';
+    position:absolute;
+    left:-30px;
+    line-height:40px;
+  }
+  &:after {
+    content:']';
+    position:absolute;
+    right:-30px;
+    line-height:40px;
+  }
+  &:after, &:before {
+    color:#16a085;
+    font-size:42px;
+    animation:2s linear 0s normal none infinite opacity;
+    -webkit-animation:2s ease-out 0s normal none infinite opacity;
+    -moz-animation:2s ease-out 0s normal none infinite opacity;
+    -o-animation:2s ease-out 0s normal none infinite opacity;
+  }
+}
+
+.visible {
+  /*float:left;*/
+  font-weight:600;
+  overflow:hidden;
+  height:120px;
+}
+
+p {
+  font-size: 100px;
+  display:inline-block;
+  /*float:left;*/
+  margin:0;
+}
+
+#list {
+  margin-top:0;
+  margin-left: 420px;
+  font-size: 75px;
+  display: inline-block;
+  /*padding-left: 120px;*/
+  /*text-align:left;*/
+  list-style:none;
+  animation:6s linear 0s normal none infinite change;
+  -webkit-animation:6s linear 0s normal none infinite change;
+  -moz-animation:6s linear 0s normal none infinite change;
+  -o-animation:6s linear 0s normal none infinite change;
+}
+
+ul li {
+  line-height:65px;
+  margin:0;
+}
+
+@-webkit-keyframes opacity {
+  0%   {opacity:0;}
+  50%  {opacity:1;}
+  100% {opacity:0;}
+}
+@keyframes opacity {
+  0%   {opacity:0;}
+  50%  {opacity:1;}
+  100% {opacity:0;}
+}
+
+@-webkit-keyframes change {
+  0%   {margin-top:0;}
+  15%  {margin-top:0;}
+  25%  {margin-top:-40px;}
+  40%  {margin-top:-40px;}
+  50%  {margin-top:-80px;}
+  65%  {margin-top:-80px;}
+  75%  {margin-top:-40px;}
+  85%  {margin-top:-40px;}
+  100% {margin-top:0;}
+}
+@keyframes change {
+  0%   {margin-top:0;}
+  15%  {margin-top:0;}
+  25%  {margin-top:-40px;}
+  40%  {margin-top:-40px;}
+  50%  {margin-top:-80px;}
+  65%  {margin-top:-80px;}
+  75%  {margin-top:-40px;}
+  85%  {margin-top:-40px;}
+  100% {margin-top:0;}
+}
+

@@ -3,3 +3,31 @@ body {
   padding: 0px;
   text-align: center;
 }
+
+#playerOne {
+  float: left;
+  border: 1px solid black;
+  height: 100px;
+}
+
+#playerTwo {
+  float: right;
+  border: 1px solid black;
+  height: 100px;
+}
+
+#phrase {
+  border: 1px solid black;
+  height: 500px;
+}
+
+footer {
+  height: 200px;
+  border: 1px solid black;
+  margin-top:5px;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+}

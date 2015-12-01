@@ -101,21 +101,87 @@ function spinAway() {
     points = 100;
   }
 //testing if random and points match
-console.log(random);
-console.log(points);
+/*console.log(random);
+console.log(points);*/
 }
 
 spinAway();
 
 // getting the alphabets that are pushed as object properties as a: "a" etc
-var a = 97;
+// 65 all caps 97 all lowercase
+
+/*var a = 65;
 var charArray = {};
 for (var i = 0; i<26; i++)
     charArray[String.fromCharCode(a + i)] = String.fromCharCode(a + i);
+console.log(charArray.A);
+*/
 
-console.log(charArray);
+    /*console.log(i);*/
+    /*console.log(charArray);*/
+    /*console.log(charArray[String.fromCharCode(a + i)]);*/
+    /*console.log(String.fromCharCode(a+i));*/
+    /*charArray[a];*/
 
 
+/////////////////Working on a function that generates random phrases////////////
+
+function phraseGen() {
+  var array = ["just a minute","be on time please", "hold that thought"];
+  var randomQ = Math.round(Math.random() * 2);
+
+  if (randomQ === 0) {
+    /*alert(array[0]);*/
+    letterCheck(array[0]);
+  } else if (randomQ === 1) {
+    letterCheck(array[1]);
+    /*alert(array[1]);*/
+  } else if (randomQ === 2) {
+    letterCheck(array[2]);
+    /*alert(array[2]);*/
+  }
+
+}
+
+var phrase = phraseGen();
+
+////////////Writing a function that checks if the guessed letter is in
+//////////// the phrase
+function letterCheck(phrase) {
+  console.log('hi');
+  var newArray = [];
+  var a = 65;
+  var charArray = {};
+  var lettera = "a";
+  console.log(charArray);
+  for (var i = 0; i<26; i++) {
+    charArray[String.fromCharCode(a + i)] = String.fromCharCode(a + i);
+    /*console.log(charArray);*/
+
+  guessLetter(charArray);
+  }
+  console.log(newArray);
+}
+
+/*var checkLetter = letterCheck(phrase);
+console.log(checkLetter);
+*/
+function guessLetter(string) {
+///////!!!!!!! try to find out how to make objects turn into array before
+//////////////// pushing into another function
+
+  for (var i = 0; i<string.length; i++) {
+    for(var j in string) {
+      /*if (phrase.charAt(i).toLowerCase() in charArray.j) { */
+        console.log(j);
+        console.log(string);
+        console.log(lettera);
+     if (lettera in string.j) {
+        newArray.push(string.j);
+      }
+    }
+  }
+}
 
 
 

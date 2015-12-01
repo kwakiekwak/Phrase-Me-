@@ -35,8 +35,16 @@ body {
   border: 1px solid black;
   height: 500px;
   display: flex;
-
+  margin-top: 20px;
 }
+
+#two {
+  margin-top: 35px;
+  font-size: 14px;
+  font-family: cursive;
+  font-weight: bold;
+}
+
 
 table {
   margin-left: auto;
@@ -51,7 +59,9 @@ footer {
   margin-top:5px;
 }
 
-
+tbody {
+  background-color: #66b8ff;
+}
 
 td {
   width: 50px;

@@ -2,31 +2,44 @@
 
 function startGame() {
 
-  document.turn = "red";
+
+document.turn = "red";
+document.blue = "blue";
+
+player1.style.backgroundColor = document.turn;
 
 }
 
+var player1 = document.getElementById('playerOne');
+var player2 = document.getElementById('playerTwo');
+var spinner = document.getElementById('two');
 var el = document.getElementById('two');
 
-var spinner = document.getElementById('two');
 spinner.addEventListener('click', function () {
-  if (spinner.style.backgroundColor == "") {
-    spinner.style.backgroundColor = document.turn;
 
+  inputLetter();
+  if (player1.style.backgroundColor == "red") {  // was ""
+    player1.style.backgroundColor = '';
+    player2.style.backgroundColor = "blue"; // was document.turn
    /* generateTable();*/
     //nextPlayer is called in order to change colors
-    nextPlayer();
-    /*console.log(nextPlayer);*/
-  }else if(spinner.style.backgroundColor == "blue") {
-    spinner.style.backgroundColor = 'red';
+    //nextPlayer();
   }
-   else {
-    spinner.style.backgroundColor = document.turn;
+  else if(player2.style.backgroundColor == "blue") { // was "blue"
+    player2.style.backgroundColor = ""; // was 'red'
+    player1.style.backgroundColor = "red";
+    /*nextPlayer();*/
+
   }
+   /*else {
+    console.log(document.turn);
+    player1.style.backgroundColor = document.turn;
+  }*/
 })
 
 //changes colors/players, nextPlayer is called in the click function
 function nextPlayer() {
+
   if (document.turn == 'red') {
     document.turn = 'blue';
   } else {
@@ -146,10 +159,10 @@ function phraseGen() {
   }
 }
 
-var phrase = phraseGen();
+/*var phrase = phraseGen();*/
 
-////////////Writing a function that checks if the guessed letter is in
-//////////// the phrase
+////////////Writing a function that generates an object properties of letters
+
 function letterCheck() {
   console.log('hi');
   /*var newArray = [];*/
@@ -181,10 +194,38 @@ function guessLetter(string) {
       }
     }
   }
+  console.log("You have guessed " + newArray.length + " letters on the board");
   console.log(newArray);
+  /*inputLetter(lettera);*/
 }
       /*if (phrase.charAt(i).toLowerCase() in charArray.j) { */
         /*console.log(string.j);*/
+
+///////////Making a function to let player guess//////////////
+function inputLetter() {
+  var letter = "a";
+  var board = document.getElementsByTagName('td');
+  console.log(letter);
+  //*** if guessed letter is in phrase push into the td;
+  var input = prompt('Please Guess a letter');
+
+  if (input == letter) {
+    phraseGen();
+    console.log(board);
+
+    board[1].style.backgroundColor = 'black';
+
+  }
+  var lowerInput = input.toLowerCase();
+
+
+}
+
+
+
+
+
+
 
 
 

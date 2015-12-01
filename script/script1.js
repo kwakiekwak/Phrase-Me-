@@ -127,40 +127,41 @@ console.log(charArray.A);
 /////////////////Working on a function that generates random phrases////////////
 
 function phraseGen() {
-  var array = ["just a minute","be on time please", "hold that thought"];
+  var array = ["just a minuteaa","be on time pleaseaa", "hold that thougaaht"];
   var randomQ = Math.round(Math.random() * 2);
 
   if (randomQ === 0) {
     /*alert(array[0]);*/
-    letterCheck(array[0]);
+    /*letterCheck(array[0]);*/
+    guessLetter(array[0]);
   } else if (randomQ === 1) {
-    letterCheck(array[1]);
+    /*letterCheck(array[1]);*/
+    guessLetter(array[1]);
     /*alert(array[1]);*/
   } else if (randomQ === 2) {
-    letterCheck(array[2]);
+    guessLetter(array[2]);
+
+    /*letterCheck(array[2]);*/
     /*alert(array[2]);*/
   }
-
 }
 
 var phrase = phraseGen();
 
 ////////////Writing a function that checks if the guessed letter is in
 //////////// the phrase
-function letterCheck(phrase) {
+function letterCheck() {
   console.log('hi');
-  var newArray = [];
+  /*var newArray = [];*/
   var a = 65;
   var charArray = {};
-  var lettera = "a";
   console.log(charArray);
   for (var i = 0; i<26; i++) {
     charArray[String.fromCharCode(a + i)] = String.fromCharCode(a + i);
     /*console.log(charArray);*/
 
-  guessLetter(charArray);
   }
-  console.log(newArray);
+  /*guessLetter(charArray);*/
 }
 
 /*var checkLetter = letterCheck(phrase);
@@ -169,19 +170,21 @@ console.log(checkLetter);
 function guessLetter(string) {
 ///////!!!!!!! try to find out how to make objects turn into array before
 //////////////// pushing into another function
+  var newArray = [];
+  var lettera = "a";
+  console.log(string);
 
   for (var i = 0; i<string.length; i++) {
-    for(var j in string) {
-      /*if (phrase.charAt(i).toLowerCase() in charArray.j) { */
-        console.log(j);
-        console.log(string);
-        console.log(lettera);
-     if (lettera in string.j) {
-        newArray.push(string.j);
+    for(var j = 0; j<string[i].length; j++) {
+      if(string[i] === "a") {
+        newArray.push(string[i]);
       }
     }
   }
+  console.log(newArray);
 }
+      /*if (phrase.charAt(i).toLowerCase() in charArray.j) { */
+        /*console.log(string.j);*/
 
 
 

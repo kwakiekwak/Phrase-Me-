@@ -34,7 +34,7 @@ function nextPlayer() {
   }
 }
 
-/////////////////////// Creating the wheel of fortune board
+/////////////////////// Creating the table of fortune board//////////////////
 
 function generateTable() {
 
@@ -74,6 +74,49 @@ function setTableBorder (row, column) {
   }
 
 }
+
+//////////////////Randomizing number to $amount(points)////////////////
+function spinAway() {
+  var points = 0;
+  var random = Math.round(Math.random() * 50)
+  if (random < 2) {
+    points = 1000;
+  } else if (random < 4) {
+    points = 900;
+  } else if (random < 7) {
+    points = 800;
+  } else if (random < 11) {
+    points = 700;
+  } else if (random < 17) {
+    points = 600;
+  } else if (random < 26) {
+    points = 500;
+  } else if (random < 33) {
+    points = 400;
+  } else if (random < 39) {
+    points = 300;
+  } else if (random < 47) {
+    points = 200
+  } else if (random <=50) {
+    points = 100;
+  }
+//testing if random and points match
+console.log(random);
+console.log(points);
+}
+
+spinAway();
+
+// getting the alphabets that are pushed as object properties as a: "a" etc
+var a = 97;
+var charArray = {};
+for (var i = 0; i<26; i++)
+    charArray[String.fromCharCode(a + i)] = String.fromCharCode(a + i);
+
+console.log(charArray);
+
+
+
 
 
 //tried to make a function that only set borders for certain criteria

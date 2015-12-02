@@ -2,15 +2,24 @@ body {
   margin: 0px;
   padding: 0px;
   text-align: center;
+  background-image: url('../top.jpeg');
+  background-size: cover;
 }
 
 /*h1 {
   font-size: 100px;
 
 }*/
+#title h1 {
+  color: #66b8ff;
+  text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+  font: 120px 'BazarMedium';
+  letter-spacing: 10px;
+}
 
 h3 {
-   font-size: 20px;
+   color: orange;
+   font-size: 40px;
    margin-top: 65px;
    -webkit-animation-name: example; /* Chrome, Safari, Opera */
    -webkit-animation-duration: 4s;
@@ -25,6 +34,7 @@ h3 {
 img {
   width: 150px;
   height: 180px;
+  border-radius: 50%;
 }
 
 h1 {

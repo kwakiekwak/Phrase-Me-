@@ -6,29 +6,55 @@ body {
 
 .container {
   display: flex;
+/*  background-color: #003399;*/
 }
 
 .test {
   border: 5px solid red;
 }
 
-#playerOne {
+#gameTitle {
+  /*background-color: #003399;*/
+
+}
+
+#gameTitle h1 {
+  color: #66b8ff;
+  text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+  font: 80px 'BazarMedium';
+  letter-spacing: 10px;
+}
+
+#playerOne, #playerTwo {
   /*float: left;*/
   border: 1px solid black;
-  height: 100px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+
+}
+
+#playerOne {
+  background-image: url("../cutmypic.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+#playerTwo {
+  background-image: url("../cutmypic1.png");
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 #spin {
   width: 80%;
 }
 
-#playerTwo {
- /* float: right;*/
-  border: 1px solid black;
-  height: 100px;
-}
 
 .container1 {
+  background-image: url("../container1.png");
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 #phrase {
@@ -38,12 +64,15 @@ body {
   margin-top: 20px;
 }
 
-#two {
+
+
+#two, #one {
   margin-top: 35px;
   font-size: 14px;
   font-family: cursive;
   font-weight: bold;
 }
+
 
 
 table {
@@ -66,4 +95,8 @@ tbody {
 td {
   width: 50px;
   height: 50px;
+}
+
+#score {
+  border: 1px solid black;
 }

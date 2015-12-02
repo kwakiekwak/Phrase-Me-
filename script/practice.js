@@ -1,39 +1,85 @@
-$(function() {
+// $( document.ready()
+// start off jquery this or
 
-console.log(1);
-generateTable();
+/*$(function() {
+  var values = [];
+
+  var toSubmit = function() {
+    var text = $('#guessBox').val();
+    values.push(text);
+    console.log(values);
+
+  }*/
+
+
+
+function startGame() {
+
+document.turn = "red";
+/*document.blue = "blue";*/
+
+player1.style.backgroundColor = document.turn;
 phraseGen();
 
 
+}
+
+var board = document.getElementsByTagName('td'); //second board
 var player1 = document.getElementById('playerOne');
 var player2 = document.getElementById('playerTwo');
-
+var spinner = document.getElementById('guessButton');
 var el = document.getElementById('two');
 var point1 = 0;
 var point2 = 0;
 var currentPhrase = "";
-document.turn = "red";
-player1.style.backgroundColor = document.turn;
-
 
 
 /////////click button/////////////////////////////////
 
+spinner.addEventListener('click', function () {
+
+  /*letterCheck();*/
+/*  console.log('hi');*/
+  letterCheck(currentPhrase);
+  /*console.log(currentPhrase);*/
+
+  var text = document.getElementById('guessBox').value
+  /*text.text = (text.text + ' after clicking')*/
+  console.log(text);
+
+  if (player1.style.backgroundColor == "red") {  // was ""
+    player1.style.backgroundColor = "";
+    player2.style.backgroundColor = "blue"; // was document.turn
+   /* generateTable();*/
+    //nextPlayer is called in order to change colors
+    //nextPlayer();
+  }
+  else if (player2.style.backgroundColor == "blue") { // was "blue"
+    player2.style.backgroundColor = ""; // was 'red'
+    player1.style.backgroundColor = "red";
+    /*nextPlayer();*/
+
+  }
+   /*else {
+    console.log(document.turn);
+    player1.style.backgroundColor = document.turn;
+  }*/
+})
 
 //changes colors/players, nextPlayer is called in the click function
-/*function nextPlayer() {
+function nextPlayer() {
 
   if (document.turn == 'red') {
     document.turn = 'blue';
   } else {
     document.turn = 'red';
   }
-}*/
+}
 
 /////////////////////// Creating the table of fortune board//////////////////
 
 function generateTable() {
-  console.log(5);
+
   //reference for body
   var main = document.getElementById('phrase');
   //creating table and tbody elements
@@ -97,23 +143,52 @@ function spinAway() {
   } else if (random <=50) {
     points = 100;
   }
+//testing if random and points match
+
+/*console.log(random);
+console.log(points);*/
 }
 
 spinAway();
 
+// getting the alphabets that are pushed as object properties as a: "a" etc
+// 65 all caps 97 all lowercase
+
+/*var a = 65;
+var charArray = {};
+for (var i = 0; i<26; i++)
+    charArray[String.fromCharCode(a + i)] = String.fromCharCode(a + i);
+console.log(charArray.A);
+*/
+
+    /*console.log(i);*/
+    /*console.log(charArray);*/
+    /*console.log(charArray[String.fromCharCode(a + i)]);*/
+    /*console.log(String.fromCharCode(a+i));*/
+    /*charArray[a];*/
+
+
 /////////////////Working on a function that generates random phrases////////////
 
-function phraseGen() {
+function phraseGen(array) {
     var array = ["just a minute", "be on time please", "hold that thought", "do you smell what the rock is cooking", "actions speak louder than words",
-      "ball is in your court", "barking up the wrong tree"];
-    console.log(2);
+      "ball is in your court", "Barking up the wrong tree"];
+    /*console.log(array.length);*/
     var random = Math.round(Math.random() * array.length - 1);
 
     for (var i=0; i<array.length; i++) {
-    }
       phraseLength(array[random]);
+    }
+  }
+
+
+ /* for (var i=0; i<array.length; i++) {
+  console.log(array[i]);
 
   }
+}
+
+/*var phrase = phraseGen();*/
 
 ////////////Writing a function that generates an object properties of letters
 
@@ -125,37 +200,30 @@ function getAlpha() {
   console.log(charArray);
   for (var i = 0; i<26; i++) {
     charArray[String.fromCharCode(a + i)] = String.fromCharCode(a + i);
+    /*console.log(charArray);*/
+
   }
+  /*letterCheck(charArray);*/
 }
 
+/*var checkLetter = getAlpha(phrase);
+console.log(checkLetter);
+*/
 function letterCheck(string) {
 ///////!!!!!!! try to find out how to make objects turn into array before
 //////////////// pushing into another function
   /*console.log(string);*/
-  console.log(6);
   var newArray = [];
-  var spinner = document.getElementById('guessButton');
-  var board = document.getElementsByTagName('td');
-  var input;
+  /*setTimeout(function(){*/
 
+   /* var input = document.getElementById('guessBox')
+  input.input = (input.input + ' after clicking')*/
 
-  spinner.addEventListener('click', function () {
-    input = document.getElementById('guessBox');
+    var input = prompt('Please Guess a letter');
     console.log(input);
-    /*text.text = (text.text + ' after clicking')*/
-    if (player1.style.backgroundColor == "red") {  // was ""
-      player1.style.backgroundColor = "";
-      player2.style.backgroundColor = "blue"; // was document.turn
-    }
-    else if (player2.style.backgroundColor == "blue") { // was "blue"
-      player2.style.backgroundColor = ""; // was 'red'
-      player1.style.backgroundColor = "red";
-    }
-
     for (var i = 0; i<string.length; i++) {
     for (var j = 0; j<string[i].length; j++) {
-      if (input.value === string[i]) {
-        console.log("after the click");
+      if (input === string[i]) {
         newArray.push(string[i]);
         board[i].innerHTML = string[i];
         board[i].style.fontFamily = "DejaVu Sans";
@@ -167,19 +235,50 @@ function letterCheck(string) {
       }
     }
 
- /* $('#guessBox')[0].value = '';*/
- console.log(input);
-  input.value = '';
-
-  })
+  /*}, 3000)*/
 }
+  /*console.log(input);*/
+
+
+  /*console.log("You have guessed " + newArray.length + " letters on the board");*/
+/*  console.log(newArray);
+*/
+  /*inputLetter(lettera);*/
+
+      /*if (phrase.charAt(i).toLowerCase() in charArray.j) { */
+        /*console.log(string.j);*/
+
+///////////Making a function to let player guess//////////////
+/*function inputLetter() {
+  var letter = "a";
+  var board = document.getElementsByTagName('td');
+  console.log(letter);
+  //*** if guessed letter is in phrase push into the td;
+
+  if (input == letter) {
+    phraseGen();
+    console.log(board[1]);
+
+    board[0].style.backgroundColor = 'black';
+    board[13].style.backgroundColor = 'black';
+    board[42].style.backgroundColor = 'black';
+    board[55].style.backgroundColor = 'black';
+
+  }
+  var lowerInput = input.toLowerCase();
+
+
+}
+*/
+
+///// Function that finds the length of the phrase then adds white
+///// background for the length in the cells
 
 function phraseLength(string) {
-  var board = document.getElementsByTagName('td');
-  console.log(3);
   //set the current phrase as a global var
+
   currentPhrase = string;
-  console.log(string);
+    /*if (i===0 || i===13 || i===42|| i===55)*/
   for (var i=0; i<string.length; i++) {
   /*console.log(string[i])*/
     if (string[i] === " ") {
@@ -189,7 +288,52 @@ function phraseLength(string) {
       board[i].style.backgroundColor = 'white';
     }
   }
-letterCheck(string);
+    /*console.log(string.length);
+    console.log(board[i]);*/
+
+
 }
-/*generateTable();*/
-});
+generateTable();
+
+// function to allow players to guess ///
+
+/*document.getElementById('spin1').addEventListener('click', function() {
+  var answer = prompt("Answer that Phrase!");
+  if(answer === currentPhrase) {
+    alert('You have won the game');
+  } else {
+    alert('Awww, maybe next time!');
+  }
+})
+document.getElementById('spin2').addEventListener('click', function() {
+  var answer = prompt("Answer that Phrase!");
+  if(answer === currentPhrase) {
+    alert('You have won the game');
+  } else {
+    alert('Awww, maybe next time!');
+  }
+})*/
+
+
+
+
+//tried to make a function that only set borders for certain criteria
+/*function setTableBorder () {
+  for(var i=0; i<4; i++) {
+    if (i==0 || i==3) {
+      for (var j=0; j<14; j++) {
+        if (j==0 || j==13) {
+          document.getElementsByTagName('td')[0][0].setAttribute('border', 'none');
+          document.getElementsByTagName('td')[0][13].setAttribute('border', 'none');
+        }
+      }
+
+    } else {
+      document.getElementsByTagName('td').setAttribute('border', 'none');
+    }
+  }
+}*/
+
+
+
+/*});*/  //from the jquery startup

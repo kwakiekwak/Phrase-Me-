@@ -293,6 +293,7 @@ function phraseLength(string) {
 
 
 }
+generateTable();
 
 // function to allow players to guess ///
 
@@ -335,5 +336,4 @@ document.getElementById('spin2').addEventListener('click', function() {
 
 
 
-generateTable();
 /*});*/  //from the jquery startup

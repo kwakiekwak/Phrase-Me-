@@ -1,36 +1,54 @@
+// $( document.ready()
+// start off jquery this or
+
+/*$(function() {
+  var values = [];
+
+  var toSubmit = function() {
+    var text = $('#guessBox').val();
+    values.push(text);
+    console.log(values);
+
+  }*/
+
 
 
 function startGame() {
 
-
 document.turn = "red";
-document.blue = "blue";
+/*document.blue = "blue";*/
 
 player1.style.backgroundColor = document.turn;
-
 phraseGen();
 
+
 }
+
 var board = document.getElementsByTagName('td'); //second board
 var player1 = document.getElementById('playerOne');
 var player2 = document.getElementById('playerTwo');
-var spinner = document.getElementById('two');
+var spinner = document.getElementById('guessButton');
 var el = document.getElementById('two');
 var point1 = 0;
 var point2 = 0;
 var currentPhrase = "";
 
+
+/////////click button/////////////////////////////////
+
 spinner.addEventListener('click', function () {
 
   /*letterCheck();*/
-  console.log('hi');
+/*  console.log('hi');*/
   letterCheck(currentPhrase);
-  console.log(currentPhrase);
+  /*console.log(currentPhrase);*/
 
-
+  var text = document.getElementById('guessBox').value
+  /*text.text = (text.text + ' after clicking')*/
+  console.log(text);
 
   if (player1.style.backgroundColor == "red") {  // was ""
-    player1.style.backgroundColor = '';
+    player1.style.backgroundColor = "";
     player2.style.backgroundColor = "blue"; // was document.turn
    /* generateTable();*/
     //nextPlayer is called in order to change colors
@@ -126,8 +144,9 @@ function spinAway() {
     points = 100;
   }
 //testing if random and points match
-console.log(random);
-console.log(points);
+
+/*console.log(random);
+console.log(points);*/
 }
 
 spinAway();
@@ -154,7 +173,7 @@ console.log(charArray.A);
 function phraseGen(array) {
     var array = ["just a minute", "be on time please", "hold that thought", "do you smell what the rock is cooking", "actions speak louder than words",
       "ball is in your court", "Barking up the wrong tree"];
-    console.log(array.length);
+    /*console.log(array.length);*/
     var random = Math.round(Math.random() * array.length - 1);
 
     for (var i=0; i<array.length; i++) {
@@ -196,6 +215,10 @@ function letterCheck(string) {
   /*console.log(string);*/
   var newArray = [];
   /*setTimeout(function(){*/
+
+   /* var input = document.getElementById('guessBox')
+  input.input = (input.input + ' after clicking')*/
+
     var input = prompt('Please Guess a letter');
     console.log(input);
     for (var i = 0; i<string.length; i++) {
@@ -207,9 +230,6 @@ function letterCheck(string) {
         board[i].style.fontWeight = "bold";
         board[i].style.fontSize = "42px";
         board[i].style.textAlign = "center";
-
-
-
         }
 
       }
@@ -256,6 +276,7 @@ function letterCheck(string) {
 
 function phraseLength(string) {
   //set the current phrase as a global var
+
   currentPhrase = string;
     /*if (i===0 || i===13 || i===42|| i===55)*/
   for (var i=0; i<string.length; i++) {
@@ -274,7 +295,8 @@ function phraseLength(string) {
 }
 
 // function to allow players to guess ///
-document.getElementById('spin1').addEventListener('click', function() {
+
+/*document.getElementById('spin1').addEventListener('click', function() {
   var answer = prompt("Answer that Phrase!");
   if(answer === currentPhrase) {
     alert('You have won the game');
@@ -289,7 +311,7 @@ document.getElementById('spin2').addEventListener('click', function() {
   } else {
     alert('Awww, maybe next time!');
   }
-})
+})*/
 
 
 
@@ -314,3 +336,4 @@ document.getElementById('spin2').addEventListener('click', function() {
 
 
 generateTable();
+/*});*/  //from the jquery startup

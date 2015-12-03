@@ -262,14 +262,6 @@ function letterCheck(string) {
 
           result = true;
       }
-
-///can't use this because I reset using '';////////
-      /*else if (input.value === " ") {
-        return 'try again';
-      }*/
-
-
-
     }
   }
   console.log(dreamteam1.sum);

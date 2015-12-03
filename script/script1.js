@@ -4,31 +4,98 @@ console.log(1);
 generateTable();
 phraseGen();
 
-
 var player1 = document.getElementById('playerOne');
 var player2 = document.getElementById('playerTwo');
-
-var el = document.getElementById('two');
+var spin;
+/*var el = document.getElementById('two');*/
 var point1 = 0;
 var point2 = 0;
+
 var currentPhrase = "";
 document.turn = "red";
 player1.style.backgroundColor = document.turn;
+///////////making an object constructor//////////////////
 
+function Scoreboard(player) {
+  this.sum = 0;
+  currentPoint = spinAway();
+/*  spin = spinAway();*/
+  /*this.pointsFromFunction = pointsFromFunction;*/
+  this.player = player;
+  this.addPoints = function() {
+    /*var pointsFromFunction = spinAway();*/
+    /*console.log(pointsFromFunction);*/
+    if(document.turn == "red") {
+      this.sum += redPoints;
+  } else {
+      this.sum += bluePoints;
+  }
+}
+}
+
+var dreamteam1 = new Scoreboard("red");
+var dreamteam2 = new Scoreboard("blue");
+
+
+
+// setting points
+function scoringPoints(num, player) {
+
+}
+
+
+//////////////////Randomizing number to $amount(points)////////////////
+function spinAway() {
+
+  /*var points = 0;*/
+  var random = Math.round(Math.random() * 50)
+  if (random < 2) {
+    points = 1000;
+  } else if (random < 4) {
+    points = 900;
+  } else if (random < 7) {
+    points = 800;
+  } else if (random < 11) {
+    points = 700;
+  } else if (random < 17) {
+    points = 600;
+  } else if (random < 26) {
+    points = 500;
+  } else if (random < 33) {
+    points = 400;
+  } else if (random < 39) {
+    points = 300;
+  } else if (random < 47) {
+    points = 200
+  } else if (random <=50) {
+    points = 100;
+  }
+ //added this
+ if (document.turn == 'red') {
+  redPoints = points;
+ } else {
+  bluePoints = points;
+ }
+
+/* spinAway();*/
+}
+
+
+/*spinAway();*/
 
 
 /////////click button/////////////////////////////////
 
 
 //changes colors/players, nextPlayer is called in the click function
-/*function nextPlayer() {
+function nextPlayer() {
 
   if (document.turn == 'red') {
     document.turn = 'blue';
   } else {
     document.turn = 'red';
   }
-}*/
+}
 
 /////////////////////// Creating the table of fortune board//////////////////
 
@@ -71,39 +138,11 @@ function setTableBorder (row, column) {
 
 }
 
-//////////////////Randomizing number to $amount(points)////////////////
-function spinAway() {
-
-  var points = 0;
-  var random = Math.round(Math.random() * 50)
-  if (random < 2) {
-    points = 1000;
-  } else if (random < 4) {
-    points = 900;
-  } else if (random < 7) {
-    points = 800;
-  } else if (random < 11) {
-    points = 700;
-  } else if (random < 17) {
-    points = 600;
-  } else if (random < 26) {
-    points = 500;
-  } else if (random < 33) {
-    points = 400;
-  } else if (random < 39) {
-    points = 300;
-  } else if (random < 47) {
-    points = 200
-  } else if (random <=50) {
-    points = 100;
-  }
-}
-
-spinAway();
 
 /////////////////Working on a function that generates random phrases////////////
 
 function phraseGen() {
+
     var array = ["just a minute", "be on time please", "hold that thought", "do you smell what the rock is cooking", "actions speak louder than words",
       "ball is in your court", "barking up the wrong tree"];
     console.log(2);
@@ -128,12 +167,14 @@ function getAlpha() {
   }
 }
 
-function letterCheck(string) {
 ///////!!!!!!! try to find out how to make objects turn into array before
-//////////////// pushing into another function
+//////////////// pushing into another function////////////////
+function letterCheck(string) {
   console.log(string);
   console.log(6);
-  var newArray = [];
+
+  var count = 0;
+  /*var newArray = [];*/
   var spinner = document.getElementById('guessButton');
   var board = document.getElementsByTagName('td');
   var input;
@@ -144,27 +185,45 @@ function letterCheck(string) {
     input = document.getElementById('guessBox');
 
     /*text.text = (text.text + ' after clicking')*/
-    if (player1.style.backgroundColor == "red") {  // was ""
+    if (player1.style.backgroundColor == document.turn) {  // was ""
       player1.style.backgroundColor = "";
       player2.style.backgroundColor = "blue"; // was document.turn
     }
-    else if (player2.style.backgroundColor == "blue") { // was "blue"
+    else if (player2.style.backgroundColor == document.turn) { // was "blue"
       player2.style.backgroundColor = ""; // was 'red'
       player1.style.backgroundColor = "red";
-    }
 
+    }
+  spinAway();
   for (var i = 0; i<string.length; i++) {
     for (var j = 0; j<string[i].length; j++) {
       if (input.value === string[i]) {
-        console.log("after the click");
-        newArray.push(string[i]);
+        /*console.log("after the click");*/
+        /*newArray.push(string[i]);*/
         board[i].innerHTML = string[i];
         board[i].style.fontFamily = "DejaVu Sans";
         board[i].style.fontWeight = "bold";
         board[i].style.fontSize = "42px";
         board[i].style.textAlign = "center";
+        count += 1;
+        /*console.log(dreamteam1.addPoints());*/
+        console.log(document.turn);
+        if(document.turn === "red") {
+          /*console.log(spinAway);*/
+
+          dreamteam1.addPoints();
+
+          /*console.log(dreamteam1.sum);*/
+          /*console.log(spinAway);*/
+        } else {
+          dreamteam2.addPoints();
+          // console.log(dreamteam2.sum);
+
+        }
+
       } if (input.value === string) {
-          newArray.push(string[i]);
+          /*newArray.push(string[i]);*/
+
           board[i].innerHTML = string[i];
           board[i].style.fontFamily = "DejaVu Sans";
           board[i].style.fontWeight = "bold";
@@ -177,6 +236,9 @@ function letterCheck(string) {
 
     }
   }
+  console.log(dreamteam1.sum);
+  console.log(dreamteam2.sum);
+    nextPlayer();
 
   if (result) {
     if (player1.style.backgroundColor === 'red') {
@@ -189,18 +251,7 @@ function letterCheck(string) {
     }
     console.log('hi');
   }
-//////////////////guessing the phrase and get winner////////////////////
-
-     /* if(input.value === currentPhrase) {
-        alert('You have won the game');
-      } else {
-        alert('Awww, maybe next time!');
-      }
-*/
- /* $('#guessBox')[0].value = '';*/
-
   input.value = '';
-
   })
 }
 
@@ -212,9 +263,8 @@ function phraseLength(string) {
   console.log(3);
   //set the current phrase as a global var
   currentPhrase = string;
-  console.log(string);
+  /*console.log(string);*/
   for (var i=0; i<string.length; i++) {
-  /*console.log(string[i])*/
     if (string[i] === " ") {
       board[i].style.backgroundColor = '#66b8ff';
     }

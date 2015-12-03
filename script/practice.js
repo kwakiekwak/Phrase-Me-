@@ -222,7 +222,7 @@ function letterCheck(string) {
     var input = prompt('Please Guess a letter');
     console.log(input);
     for (var i = 0; i<string.length; i++) {
-    for (var j = 0; j<string[i].length; j++) {
+      for (var j = 0; j<string[i].length; j++) {
       if (input === string[i]) {
         newArray.push(string[i]);
         board[i].innerHTML = string[i];

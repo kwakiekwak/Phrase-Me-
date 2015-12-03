@@ -27,10 +27,15 @@ function Scoreboard(player) {
     /*console.log(pointsFromFunction);*/
     if(document.turn == "red") {
       this.sum += redPoints;
+      point1 = this.sum;
+      $('#scoreL').html(this.sum);
+
   } else {
       this.sum += bluePoints;
+      point2 = this.sum;
+      $('#scoreR').html(this.sum);
   }
-}
+ }
 }
 
 var dreamteam1 = new Scoreboard("red");
@@ -43,31 +48,50 @@ function scoringPoints(num, player) {
 
 }
 
-
+console.log(point1);
+console.log(point2);
 //////////////////Randomizing number to $amount(points)////////////////
 function spinAway() {
 
   /*var points = 0;*/
-  var random = Math.round(Math.random() * 50)
-  if (random < 2) {
+  var random = Math.round(Math.random() * 70)
+  if (random < 1) {
     points = 1000;
+  } else if (random < 2) {
+    points = 950;
   } else if (random < 4) {
     points = 900;
-  } else if (random < 7) {
+  } else if (random < 6) {
+    points = 850;
+  } else if (random < 8) {
     points = 800;
-  } else if (random < 11) {
+  } else if (random < 10) {
+    points = 750;
+  } else if (random < 12) {
     points = 700;
-  } else if (random < 17) {
+  } else if (random < 16) {
+    points = 650;
+  } else if (random < 20) {
     points = 600;
-  } else if (random < 26) {
+  } else if (random < 24) {
+    points = 550;
+  } else if (random < 30) {
     points = 500;
-  } else if (random < 33) {
+  } else if (random < 34) {
+    points = 450;
+  } else if (random < 38) {
     points = 400;
-  } else if (random < 39) {
+  } else if (random < 42) {
+    points = 350;
+  } else if (random < 48) {
     points = 300;
-  } else if (random < 47) {
-    points = 200
-  } else if (random <=50) {
+  } else if (random < 54) {
+    points = 250;
+  } else if (random < 60) {
+    points = 200;
+  } else if (random < 65) {
+    points = 150;
+  } else if (random <= 70) {
     points = 100;
   }
  //added this
@@ -80,7 +104,7 @@ function spinAway() {
 /* spinAway();*/
 }
 
-
+console.log(redPoints);
 /*spinAway();*/
 
 
@@ -196,7 +220,8 @@ function letterCheck(string) {
     }
   spinAway();
   for (var i = 0; i<string.length; i++) {
-    for (var j = 0; j<string[i].length; j++) {
+    //didn't need this
+    /*for (var j = 0; j<string[i].length; j++) {*/
       if (input.value === string[i]) {
         /*console.log("after the click");*/
         /*newArray.push(string[i]);*/
@@ -205,21 +230,25 @@ function letterCheck(string) {
         board[i].style.fontWeight = "bold";
         board[i].style.fontSize = "42px";
         board[i].style.textAlign = "center";
-        count += 1;
+        board[i].style.backgroundColor = "orange";
+
+    //if a letter is already guessed try again/////
+    //* it prevents player to answer but then the game doesnt run again//
+
+        /*if (board[i].innerHTML === input.value) {
+          return "try again";
+          console.log('hi');
+        }*/
         /*console.log(dreamteam1.addPoints());*/
-        console.log(document.turn);
         if(document.turn === "red") {
           /*console.log(spinAway);*/
-
           dreamteam1.addPoints();
-
           /*console.log(dreamteam1.sum);*/
           /*console.log(spinAway);*/
         } else {
           dreamteam2.addPoints();
           // console.log(dreamteam2.sum);
-
-        }
+        /*}*/
 
       } if (input.value === string) {
           /*newArray.push(string[i]);*/
@@ -233,6 +262,13 @@ function letterCheck(string) {
 
           result = true;
       }
+
+///can't use this because I reset using '';////////
+      /*else if (input.value === " ") {
+        return 'try again';
+      }*/
+
+
 
     }
   }

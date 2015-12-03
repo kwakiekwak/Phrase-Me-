@@ -1,8 +1,36 @@
-$(function() {
+$(document).ready(function() {
 
 console.log(1);
 generateTable();
 phraseGen();
+
+$('#wordbank').click(function () {
+  console.log('does it reach');
+  $('#hideMe').hide();
+  $('#hideMe1').hide();
+  $('#showMe').show();
+  $('#goBack').show();
+})
+
+$('#goBack').click(function() {
+  $('#hideMe').show();
+  $('#hideMe1').show();
+  $('#showMe').hide();
+  $('#goBack').hide();
+})
+
+///////////////////WORD BANK and REMOVING LETTER/////////////////////
+function wordBank () {
+  this.unguessedLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
+  this.guessedLetters = [];
+  this.removeLetters = function(letter) {
+
+  }
+}
+
+var bank = new wordBank;
+
+/////////// Creating a keydown space to show hidden html/ ////////////
 
 var player1 = document.getElementById('playerOne');
 var player2 = document.getElementById('playerTwo');
@@ -104,7 +132,7 @@ function spinAway() {
 /* spinAway();*/
 }
 
-console.log(redPoints);
+/*console.log(redPoints);*/
 /*spinAway();*/
 
 
@@ -219,6 +247,14 @@ function letterCheck(string) {
 
     }
   spinAway();
+
+
+
+
+
+
+
+
   for (var i = 0; i<string.length; i++) {
     //didn't need this
     /*for (var j = 0; j<string[i].length; j++) {*/
@@ -241,18 +277,23 @@ function letterCheck(string) {
         }*/
         /*console.log(dreamteam1.addPoints());*/
         if(document.turn === "red") {
+
           /*console.log(spinAway);*/
           dreamteam1.addPoints();
           /*console.log(dreamteam1.sum);*/
           /*console.log(spinAway);*/
+
         } else {
+
           dreamteam2.addPoints();
           // console.log(dreamteam2.sum);
         /*}*/
 
+        }
+
       } if (input.value === string) {
           /*newArray.push(string[i]);*/
-
+          console.log('hello');
           board[i].innerHTML = string[i];
           board[i].style.fontFamily = "DejaVu Sans";
           board[i].style.fontWeight = "bold";
@@ -263,10 +304,10 @@ function letterCheck(string) {
           result = true;
       }
     }
-  }
+
   console.log(dreamteam1.sum);
   console.log(dreamteam2.sum);
-    nextPlayer();
+  nextPlayer();
 
   if (result) {
     if (player1.style.backgroundColor === 'red') {

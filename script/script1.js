@@ -303,7 +303,7 @@ function getAlpha() {
 //////////////// pushing into another function////////////////
 function letterCheck(string) {
 
-  // console.log(string);
+  console.log(string);
   console.log(6);
 
   var count = 0;

@@ -2,7 +2,9 @@ $(document).ready(function() {
 
 console.log(1);
 generateTable();
+// generateLetterBank();
 phraseGen();
+console.log(document.getElementById('v').innerHTML)
 
 $('#wordbank').click(function () {
   console.log('does it reach');
@@ -10,25 +12,90 @@ $('#wordbank').click(function () {
   $('#hideMe1').hide();
   $('#showMe').show();
   $('#goBack').show();
+
 })
 
 $('#goBack').click(function() {
-  $('#hideMe').show();
-  $('#hideMe1').show();
   $('#showMe').hide();
   $('#goBack').hide();
+  $('#hideMe').show();
+  $('#hideMe1').show();
 })
 
 ///////////////////WORD BANK and REMOVING LETTER/////////////////////
-function wordBank () {
-  this.unguessedLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
-  this.guessedLetters = [];
-  this.removeLetters = function(letter) {
+var alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'l', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var alphaText = $('.bank')
+/*console.log(alphaText[2].innerHTML);
+console.log(alphabets[2]);*/
 
-  }
+
+
+function LetterBank (letter) {
+  for (var i=0; i<alphabets.length; i++) {
+    if (letter === alphaText[i].innerHTML) {
+        alphaText[i].style.backgroundColor = "black";
+        alphaText[i].style.color = "white";
+      }
+   }
 }
 
-var bank = new wordBank;
+
+
+// var bank = LetterBank();
+
+///////////Generating a word bank//////////////////////////
+function generateLetterBank() {
+  console.log(5);
+  //reference for body
+  var main = document.getElementById('showMe');
+  //creating table and tbody elements
+  var tble = document.createElement("table");
+  var tblebody = document.createElement("tbody");
+  // sets border attributes
+  tble.setAttribute('border', '1');
+
+  var i;
+  var j;
+
+  //creating cells
+  for (i=0; i<4; i++) {
+    //creates table row
+    var row = document.createElement('tr');
+    for (j=0; j<7; j++) {
+      var cell = document.createElement('td');
+      row.appendChild(cell);
+    /*setTableBorder(i, j);*/
+    // setTableId(i, j);
+      }
+    tblebody.appendChild(row);
+    }
+
+  // add the tblebody to the table
+  tble.appendChild(tblebody);
+  // append the table to the body
+  main.appendChild(tble);
+}
+
+
+/*function setTableBorder (row, column) {
+  if (row===0&&column===13) {
+    $('td').addClass('test');
+  }
+
+}
+*/
+
+/*function setTableId (row, column) {
+  var setId = document.getElementsByTagName('row');
+  for(var i=0; i<4; i++) {
+    for(var j=0; j<7; j++) {
+      setId[column].setAttribute('id', 's' + i + 'a' + j);
+    }
+  }
+}
+*/
+
+
 
 /////////// Creating a keydown space to show hidden html/ ////////////
 
@@ -50,6 +117,7 @@ function Scoreboard(player) {
 /*  spin = spinAway();*/
   /*this.pointsFromFunction = pointsFromFunction;*/
   this.player = player;
+
   this.addPoints = function() {
     /*var pointsFromFunction = spinAway();*/
     /*console.log(pointsFromFunction);*/
@@ -63,7 +131,18 @@ function Scoreboard(player) {
       point2 = this.sum;
       $('#scoreR').html(this.sum);
   }
- }
+}
+  this.winnerPoints = function() {
+    if(document.turn == "blue") {
+      this.sum += 4250;
+      point1 = this.sum;
+      $('#scoreL').html(this.sum);
+    } else {
+      this.sum += 4250;
+      point2 = this.sum;
+      $('#scoreR').html(this.sum);
+    }
+  }
 }
 
 var dreamteam1 = new Scoreboard("red");
@@ -72,12 +151,12 @@ var dreamteam2 = new Scoreboard("blue");
 
 
 // setting points
-function scoringPoints(num, player) {
+/*function scoringPoints(num, player) {
 
-}
+}*/
 
-console.log(point1);
-console.log(point2);
+/*console.log(point1);
+console.log(point2);*/
 //////////////////Randomizing number to $amount(points)////////////////
 function spinAway() {
 
@@ -195,8 +274,8 @@ function setTableBorder (row, column) {
 
 function phraseGen() {
 
-    var array = ["just a minute", "be on time please", "hold that thought", "do you smell what the rock is cooking", "actions speak louder than words",
-      "ball is in your court", "barking up the wrong tree"];
+    var array = ["just a minute", "be on time please", "hold that thought", "do you smell what the rock is cooking", "actions speak louder than words", "ball is in your court", "barking up the wrong tree"];
+
     console.log(2);
     var random = Math.round(Math.random() * array.length - 1);
 
@@ -222,6 +301,7 @@ function getAlpha() {
 ///////!!!!!!! try to find out how to make objects turn into array before
 //////////////// pushing into another function////////////////
 function letterCheck(string) {
+
   console.log(string);
   console.log(6);
 
@@ -232,9 +312,19 @@ function letterCheck(string) {
   var input;
   var result = false;
 
-
+  var guessedLetters = []
   spinner.addEventListener('click', function () {
     input = document.getElementById('guessBox');
+
+    // check if the letter has already been guessed
+    if (guessedLetters.indexOf(input.value) > -1) {
+      console.log("repeat letter")
+      alert("BRICK! Next...")
+      return "try again"
+
+    }
+    guessedLetters.push(input.value) // make sure it doesn't get guessed again
+    console.log(input.value)
 
     /*text.text = (text.text + ' after clicking')*/
     if (player1.style.backgroundColor == document.turn) {  // was ""
@@ -248,17 +338,10 @@ function letterCheck(string) {
     }
   spinAway();
 
-
-
-
-
-
-
-
   for (var i = 0; i<string.length; i++) {
     //didn't need this
     /*for (var j = 0; j<string[i].length; j++) {*/
-      if (input.value === string[i]) {
+      if (input.value.toLowerCase() === string[i]) {
         /*console.log("after the click");*/
         /*newArray.push(string[i]);*/
         board[i].innerHTML = string[i];
@@ -291,9 +374,9 @@ function letterCheck(string) {
 
         }
 
-      } if (input.value === string) {
+      }if (input.value.toLowerCase() === string) {
           /*newArray.push(string[i]);*/
-          console.log('hello');
+          //console.log('hello');
           board[i].innerHTML = string[i];
           board[i].style.fontFamily = "DejaVu Sans";
           board[i].style.fontWeight = "bold";
@@ -305,22 +388,27 @@ function letterCheck(string) {
       }
     }
 
-  console.log(dreamteam1.sum);
-  console.log(dreamteam2.sum);
+  /*console.log(dreamteam1.sum);
+  console.log(dreamteam2.sum);*/
   nextPlayer();
 
   if (result) {
     if (player1.style.backgroundColor === 'red') {
-      console.log("player2 has won!");
-      alert("player2 has won!");
+      dreamteam2.winnerPoints();
+      //console.log("player2 has won!");
+      alert("Dream Team 2 has won!");
 
     } else {
-      console.log("player1 has won!");
-      alert("player1 has won!");
+      dreamteam1.winnerPoints();
+      // console.log("player1 has won!");
+      alert("Dream Team 1 has won!");
     }
-    console.log('hi');
+    /*console.log('hi');*/
   }
+  // console.log(input.value);
+  LetterBank(input.value);
   input.value = '';
+
   })
 }
 
@@ -343,5 +431,6 @@ function phraseLength(string) {
   }
 letterCheck(string);
 }
+
 /*generateTable();*/
 });

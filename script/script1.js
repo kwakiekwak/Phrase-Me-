@@ -387,10 +387,11 @@ function letterCheck(string) {
 
           result = true;
 
-      } else {
-        console.log('hi');
-        alert("TRY AGAIN NEXT TIME!")
       }
+      //else {
+      //   console.log('hi');
+      //   alert("TRY AGAIN NEXT TIME!")
+      // }
     }
 
 

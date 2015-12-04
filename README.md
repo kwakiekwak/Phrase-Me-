@@ -15,7 +15,7 @@ With the desire to practice the technique that caused me the most trouble unders
 I started building the game with mostly DOM (Document Object Model) method. Then I added 
 on jQuery, methods, constructor functions. 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Here is a brief outline of Phrase Me.
 
@@ -73,6 +73,11 @@ a match the background of the div with the same innerHTML will be turned black a
 color to white.
 
 There are also two other buttons which hide and show certain things like the wordbank.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+What I learned?!?!?
+
 
 Through this project, I was able to more clearly understand scoping, hoisting, trello,
 gitHub, functions, functions with arguments/parameters, jQuery, DOM, methods, and constructor 

@@ -15,7 +15,7 @@ var point2 = 0;
 var currentPhrase = "";
 document.turn = "red";
 player1.style.backgroundColor = document.turn;
-console.log(document.getElementById('v').innerHTML)
+// console.log(document.getElementById('v').innerHTML)
 
 $('#wordbank').click(function () {
   console.log('does it reach');
@@ -303,7 +303,7 @@ function getAlpha() {
 //////////////// pushing into another function////////////////
 function letterCheck(string) {
 
-  console.log(string);
+  // console.log(string);
   console.log(6);
 
   var count = 0;
@@ -417,6 +417,7 @@ function letterCheck(string) {
 
   })
 }
+
 
 //////////////keeping score//////////////////////////////
 

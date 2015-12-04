@@ -1,9 +1,20 @@
+//////this is where it began
 $(document).ready(function() {
 
 console.log(1);
 generateTable();
 // generateLetterBank();
 phraseGen();
+var player1 = document.getElementById('playerOne');
+var player2 = document.getElementById('playerTwo');
+var spin;
+/*var el = document.getElementById('two');*/
+var point1 = 0;
+var point2 = 0;
+
+var currentPhrase = "";
+document.turn = "red";
+player1.style.backgroundColor = document.turn;
 console.log(document.getElementById('v').innerHTML)
 
 $('#wordbank').click(function () {
@@ -99,16 +110,6 @@ function generateLetterBank() {
 
 /////////// Creating a keydown space to show hidden html/ ////////////
 
-var player1 = document.getElementById('playerOne');
-var player2 = document.getElementById('playerTwo');
-var spin;
-/*var el = document.getElementById('two');*/
-var point1 = 0;
-var point2 = 0;
-
-var currentPhrase = "";
-document.turn = "red";
-player1.style.backgroundColor = document.turn;
 ///////////making an object constructor//////////////////
 
 function Scoreboard(player) {
@@ -324,7 +325,7 @@ function letterCheck(string) {
 
     }
     guessedLetters.push(input.value) // make sure it doesn't get guessed again
-    console.log(input.value)
+    // console.log(input.value)
 
     /*text.text = (text.text + ' after clicking')*/
     if (player1.style.backgroundColor == document.turn) {  // was ""
@@ -385,6 +386,8 @@ function letterCheck(string) {
           board[i].style.color = 'blue';
 
           result = true;
+      } else if(input.value.toLowerCase() !== string) {
+        alert("TRY AGAIN NEXT TIME!")
       }
     }
 

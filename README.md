@@ -1,7 +1,10 @@
 A README.md file with explanations of the technologies used,
  the approach taken, installation instructions, unsolved problems, etc.
+ 
+ 
 ////////////////////////////////////////////////////////////////////////////////////////// 
-README.md
+										README.md
+//////////////////////////////////////////////////////////////////////////////////////////
 
 Phrase Me! I started with the notion that I was going build a game that tried to mimic the
 game show called Wheel of Fortune with the HTML/CSS skills and Javascript language that 
@@ -11,6 +14,8 @@ more of a combination of Wheel of Fortune and Hang Man.
 With the desire to practice the technique that caused me the most trouble understanding, 
 I started building the game with mostly DOM (Document Object Model) method. Then I added 
 on jQuery, methods, constructor functions. 
+
+
 
 Here is a brief outline of Phrase Me.
 

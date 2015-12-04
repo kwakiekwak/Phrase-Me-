@@ -3,10 +3,16 @@
 <head>
   <link rel="stylesheet" href="style/style1.css">
 </head>
-<body onload="startGame()"
+<body>
+
+ <div id="score">
+   <div id="scoreR">0</div>
+   <div id="scoreL">0</div>
+ </div>
+
 
   <header id="gameTitle">
-    <h1>PHRASE ME!</h1>
+    <h1 onclick="history.go(0)">PHRASE ME!</h1>
   </header>
 
 <div id="justForImg">
@@ -20,11 +26,69 @@
 
 
     <div id="spin">
-    <div>
-      <input id="guessBox" type="text" placeholder="Phrase Me">
+      <div id="hideMe">
+        <input id="guessBox" type="text" placeholder="Phrase Me">
+      </div>
+
+      <div id="hideMe1">
+        <div id="blank">
+          <button id="guessButton" type="button" value="one">Guess a Letter!</button>
+        </div>
+        <div id="enter">
+          <button id="wordbank" type="button">Letter Bank</button>
+        </div>
+      </div>
+
+      <div id="showMe">
+        <div id="wordRow">
+
+          <div id="a" class="bank">a</div>
+          <div id="b" class="bank">b</div>
+          <div id="c" class="bank">c</div>
+          <div id="d" class="bank">d</div>
+          <div id="e" class="bank">e</div>
+          <div id="f" class="bank">f</div>
+          <div id="g" class="bank">g</div>
+        </div>
+
+        <div id="wordRow1">
+          <div id="h" class="bank">h</div>
+          <div id="i" class="bank">i</div>
+          <div id="j" class="bank">j</div>
+          <div id="k" class="bank">k</div>
+          <div id="l" class="bank">l</div>
+          <div id="m" class="bank">m</div>
+          <div id="n" class="bank">n</div>
+        </div>
+
+        <div id="wordRow2">
+          <div id="o" class="bank">o</div>
+          <div id="p" class="bank">p</div>
+          <div id="q" class="bank">q</div>
+          <div id="r" class="bank">r</div>
+          <div id="s" class="bank">s</div>
+          <div id="t" class="bank">t</div>
+          <div id="u" class="bank">u</div>
+        </div>
+
+        <div id="wordRow3">
+          <div id="mj" class= "bank">23</div>
+          <div id="v" class="bank">v</div>
+          <div id="w" class="bank">w</div>
+          <div id="x" class="bank">x</div>
+          <div id="y" class="bank">y</div>
+          <div id="z" class="bank">z</div>
+          <div id="kb" class="bank">24</div>
+        </div>
+
+      </div>
+
+      <div id="goBack">
+        <button id="return" type="button">return</button>
+      </div>
+
     </div>
-      <button id="guessButton" type="button" value="one">Guess a Letter!</button>
-    </div>
+
     <!-- <div id="newGame">
       <button id="new" type="button" value="one">Guess a Letter!</button>
     </div> -->
@@ -38,9 +102,9 @@
 
   </div>
 </div>
+  <!-- <div id="pointsforPlayer1"> Player1 points</div> -->
   <div class="container1">
     <div id="phrase">
-
     </div>
   </div>
 

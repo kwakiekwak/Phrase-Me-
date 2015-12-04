@@ -4,6 +4,28 @@ body {
   text-align: center;
 }
 
+#scoreR {
+  float: right;
+  border: 5px solid blue;
+  width: 150px;
+  height: 40px;
+  margin-top: 120px;
+  padding-top: 5px;
+  color: gray;
+  font-size: 30px;
+}
+
+#scoreL {
+  float: left;
+  border: 5px solid red;
+  width: 150px;
+  height: 40px;
+  margin-top: 120px;
+  padding-top: 5px;
+  color: gray;
+  font-size: 30px;
+}
+
 .container {
   display: flex;
 /*  background-color: #003399;*/
@@ -64,7 +86,19 @@ body {
   margin-top: 20px;
 }
 
+#guessBox {
+  text-align: center;
+}
 
+#guessButton {
+  display: inline-block;
+}
+
+#wordbank {
+  margin-top: 33px;
+  background-color: blue;
+  color: white;
+}
 
 #guessButton, #one {
   margin-top: 35px;
@@ -73,7 +107,33 @@ body {
   font-weight: bold;
 }
 
+#showMe, #goBack{
+  display: none;
+ /* visibility: 'hidden';*/
+}
 
+.bank {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+}
+
+#mj {
+  color: red;
+  font-weight: bold;
+}
+
+#kb {
+  color: blue;
+  font-weight: bold;
+}
+
+#return {
+  margin-top: 15px;
+  background-color: blue;
+  color: white;
+}
 
 table {
   margin-left: auto;

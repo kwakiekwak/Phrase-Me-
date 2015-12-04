@@ -387,10 +387,10 @@ function letterCheck(string) {
 
           result = true;
 
-      // } else {
-      //   console.log('hi');
-      //   alert("TRY AGAIN NEXT TIME!")
-      // }
+      } else {
+        console.log('hi');
+        alert("TRY AGAIN NEXT TIME!")
+      }
     }
 
 
@@ -401,7 +401,7 @@ function letterCheck(string) {
   if (result) {
     if (player1.style.backgroundColor === 'red') {
       dreamteam2.winnerPoints();
-      //console.log("player2 has won!");
+      console.log("player2 has won!");
       alert("Dream Team 2 has won!");
 
     } else {

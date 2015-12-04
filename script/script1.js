@@ -386,10 +386,13 @@ function letterCheck(string) {
           board[i].style.color = 'blue';
 
           result = true;
-      } else if(input.value.toLowerCase() !== string) {
-        alert("TRY AGAIN NEXT TIME!")
-      }
+
+      // } else {
+      //   console.log('hi');
+      //   alert("TRY AGAIN NEXT TIME!")
+      // }
     }
+
 
   /*console.log(dreamteam1.sum);
   console.log(dreamteam2.sum);*/
